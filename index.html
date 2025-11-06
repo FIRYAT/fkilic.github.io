@@ -1,96 +1,164 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Firyat Kılıç | Kişisel Site</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kişisel Site</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0e0e0e;
-      color: #f5f5f5;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      overflow: hidden;
+      min-height: 100vh;
     }
-    header {
-      background: linear-gradient(90deg, #f2c94c, #f2994a);
+
+    /* Splash Screen */
+    #splash {
+      position: fixed;
+      inset: 0;
+      background: #f2c94c;
       color: #0b0b0b;
-      padding: 25px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      font-weight: 600;
+      z-index: 10;
+      animation: fadeOut 2s ease-in forwards;
+      animation-delay: 2s;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    header {
       text-align: center;
+      padding: 25px 0;
       font-size: 1.8em;
       font-weight: 600;
+      color: #f2c94c;
       letter-spacing: 1px;
     }
-    nav {
+
+    .container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 25px;
-      background: #1a1a1a;
-      padding: 15px 0;
+      gap: 20px;
+      padding: 40px 20px;
     }
-    nav a {
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      width: 250px;
+      height: 180px;
+      text-align: center;
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.15);
+    }
+
+    .card h3 {
+      margin-top: 40px;
       color: #f2c94c;
+    }
+
+    .page {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 0.5s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      background: #f2c94c;
+      color: #0b0b0b;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: 500;
       transition: 0.3s;
     }
-    nav a:hover {
-      color: #fff;
-    }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #181818;
-      border-radius: 16px;
-      box-shadow: 0 0 10px #000;
-    }
-    h2 {
-      color: #f2c94c;
-      border-bottom: 2px solid #f2c94c;
-      padding-bottom: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      color: #aaa;
-      font-size: 0.9em;
+
+    .back-btn:hover {
+      background: #fff;
     }
   </style>
 </head>
 <body>
-  <header>Firyat Kılıç</header>
-  <nav>
-    <a href="#hakkimda">Hakkımda</a>
-    <a href="#dersler">Derslerim</a>
-    <a href="#iletisim">İletişim</a>
-  </nav>
 
-  <section id="hakkimda">
-    <h2>🧑‍💻 Hakkımda</h2>
-    <p>Ben Firyat Kılıç, Bilgisayar Mühendisliği öğrencisiyim. Yapay zeka, görüntü işleme ve web geliştirme alanlarında projeler geliştiriyorum.</p>
+  <!-- Splash Screen -->
+  <div id="splash">Yükleniyor...</div>
+
+  <header>Kişisel Web Uygulaması</header>
+
+  <main id="main">
+    <div class="container">
+      <div class="card" onclick="openPage('dersler')">
+        <h3>Dersler</h3>
+      </div>
+      <div class="card" onclick="openPage('projeler')">
+        <h3>Projeler</h3>
+      </div>
+      <div class="card" onclick="openPage('iletisim')">
+        <h3>İletişim</h3>
+      </div>
+    </div>
+  </main>
+
+  <!-- Sayfalar -->
+  <section id="dersler" class="page">
+    <h2>📚 Dersler</h2>
+    <p>Yapay Zeka, Veri Madenciliği, Görüntü İşleme, Web Programlama...</p>
+    <a href="#" class="back-btn" onclick="goBack()">← Geri</a>
   </section>
 
-  <section id="dersler">
-    <h2>📚 Derslerim</h2>
-    <ul>
-      <li>Yapay Zeka ve Derin Öğrenme</li>
-      <li>Veri Madenciliği</li>
-      <li>Görüntü İşleme</li>
-      <li>Web Programlama</li>
-      <li>Veritabanı Sistemleri</li>
-    </ul>
+  <section id="projeler" class="page">
+    <h2>💡 Projeler</h2>
+    <p>STN Tespiti, Teknofest UAV, 3D Slicer Modülü...</p>
+    <a href="#" class="back-btn" onclick="goBack()">← Geri</a>
   </section>
 
-  <section id="iletisim">
+  <section id="iletisim" class="page">
     <h2>✉️ İletişim</h2>
-    <p>E-posta: <a href="mailto:firyatkilic@example.com" style="color:#f2c94c;">firyatkilic@example.com</a></p>
+    <p>E-posta: <a href="mailto:info@example.com" style="color:#f2c94c;">info@example.com</a></p>
     <p>GitHub: <a href="https://github.com/firyat" style="color:#f2c94c;">github.com/firyat</a></p>
+    <a href="#" class="back-btn" onclick="goBack()">← Geri</a>
   </section>
 
-  <footer>
-    © 2025 Firyat Kılıç – Tüm Hakları Saklıdır.
-  </footer>
+  <script>
+    const main = document.getElementById('main');
+    const pages = document.querySelectorAll('.page');
+
+    function openPage(id) {
+      main.style.display = 'none';
+      pages.forEach(p => p.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function goBack() {
+      pages.forEach(p => p.style.display = 'none');
+      main.style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
