@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kişisel Site</title>
+  <title>Kişisel Web Uygulaması</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -11,7 +11,7 @@
     body {
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
-      overflow: hidden;
+      overflow-x: hidden;
       min-height: 100vh;
     }
 
@@ -30,7 +30,6 @@
       animation: fadeOut 2s ease-in forwards;
       animation-delay: 2s;
     }
-
     @keyframes fadeOut {
       to { opacity: 0; visibility: hidden; }
     }
@@ -61,17 +60,19 @@
       text-align: center;
       padding: 20px;
       cursor: pointer;
-      transition: transform 0.3s, background 0.3s;
+      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px) scale(1.03);
       background: rgba(255,255,255,0.15);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
     .card h3 {
       margin-top: 40px;
       color: #f2c94c;
+      font-size: 1.3em;
     }
 
     .page {
@@ -88,7 +89,7 @@
 
     .back-btn {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 40px;
       padding: 10px 25px;
       background: #f2c94c;
       color: #0b0b0b;
@@ -100,6 +101,62 @@
 
     .back-btn:hover {
       background: #fff;
+    }
+
+    /* --- Proje Kartları --- */
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      width: 280px;
+      text-align: left;
+      padding: 20px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      background: rgba(255,255,255,0.15);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .project-card h3 {
+      color: #f2c94c;
+      margin-bottom: 8px;
+      font-size: 1.2em;
+    }
+
+    .project-card p {
+      color: #e0e0e0;
+      font-size: 0.9em;
+      line-height: 1.4em;
+      margin-bottom: 10px;
+    }
+
+    .project-card a {
+      color: #f2c94c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #ccc;
+      font-size: 0.9em;
     }
   </style>
 </head>
@@ -133,16 +190,44 @@
 
   <section id="projeler" class="page">
     <h2>💡 Projeler</h2>
-    <p>STN Tespiti, Teknofest UAV, 3D Slicer Modülü...</p>
+    <div class="projects-container">
+
+      <div class="project-card">
+        <h3>Stroke Detection</h3>
+        <p>3D Slicer için geliştirilmiş PyTorch tabanlı inme tespiti ve segmentasyon modülü.</p>
+        <a href="https://github.com/firyat/StrokeDetection" target="_blank">🔗 GitHub’da Gör</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Teknofest UAV Detection</h3>
+        <p>RetinaNet ve Faster R-CNN kullanarak hava araçlarını tespit eden yapay zeka modeli.</p>
+        <a href="https://github.com/firyat/Teknofest-UAV" target="_blank">🔗 GitHub’da Gör</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Online Satış Sistemi</h3>
+        <p>Java Spring Boot ve ReactJS kullanılarak geliştirilen çok katmanlı e-ticaret platformu.</p>
+        <a href="https://github.com/firyat/OnlineSales" target="_blank">🔗 GitHub’da Gör</a>
+      </div>
+
+      <div class="project-card">
+        <h3>STN Atlas Segmentasyon</h3>
+        <p>GMM tabanlı özellik çıkarımıyla Subthalamic Nucleus (STN) tespiti ve atlas hizalaması.</p>
+        <a href="https://github.com/firyat/STN-Segmentation" target="_blank">🔗 GitHub’da Gör</a>
+      </div>
+
+    </div>
     <a href="#" class="back-btn" onclick="goBack()">← Geri</a>
   </section>
 
   <section id="iletisim" class="page">
     <h2>✉️ İletişim</h2>
-    <p>E-posta: <a href="mailto:kilicf09876@gmail.com" style="color:#f2c94c;">info@example.com</a></p>
+    <p>E-posta: <a href="mailto:kilicf09876@gmail.com" style="color:#f2c94c;">kilicf09876@gmail.com</a></p>
     <p>GitHub: <a href="https://github.com/firyat" style="color:#f2c94c;">github.com/firyat</a></p>
     <a href="#" class="back-btn" onclick="goBack()">← Geri</a>
   </section>
+
+  <footer>© 2025 Tüm Hakları Saklıdır.</footer>
 
   <script>
     const main = document.getElementById('main');
