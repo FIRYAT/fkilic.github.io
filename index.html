@@ -1,36 +1,96 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Firyat Kılıç | Ana Sayfa</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firyat Kılıç | Kişisel Site</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0b;
+      font-family: 'Poppins', sans-serif;
+      background: #0e0e0e;
       color: #f5f5f5;
-      text-align: center;
     }
     header {
-      background: #f2c94c;
+      background: linear-gradient(90deg, #f2c94c, #f2994a);
       color: #0b0b0b;
       padding: 25px 0;
-      font-size: 2em;
-      font-weight: bold;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: 600;
       letter-spacing: 1px;
     }
-    main { padding: 60px 20px; }
-    h2 { color: #f2c94c; }
-    a { color: #f2c94c; text-decoration: none; }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      background: #1a1a1a;
+      padding: 15px 0;
+    }
+    nav a {
+      color: #f2c94c;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #181818;
+      border-radius: 16px;
+      box-shadow: 0 0 10px #000;
+    }
+    h2 {
+      color: #f2c94c;
+      border-bottom: 2px solid #f2c94c;
+      padding-bottom: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #aaa;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
   <header>Firyat Kılıç</header>
-  <main>
-    <h2>Hoş Geldiniz!</h2>
-    <p>Bu benim kişisel web sitemdir.</p>
-    <p><a href="mailto:firyatkilic@example.com">İletişim için tıklayın</a></p>
-  </main>
+  <nav>
+    <a href="#hakkimda">Hakkımda</a>
+    <a href="#dersler">Derslerim</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+
+  <section id="hakkimda">
+    <h2>🧑‍💻 Hakkımda</h2>
+    <p>Ben Firyat Kılıç, Bilgisayar Mühendisliği öğrencisiyim. Yapay zeka, görüntü işleme ve web geliştirme alanlarında projeler geliştiriyorum.</p>
+  </section>
+
+  <section id="dersler">
+    <h2>📚 Derslerim</h2>
+    <ul>
+      <li>Yapay Zeka ve Derin Öğrenme</li>
+      <li>Veri Madenciliği</li>
+      <li>Görüntü İşleme</li>
+      <li>Web Programlama</li>
+      <li>Veritabanı Sistemleri</li>
+    </ul>
+  </section>
+
+  <section id="iletisim">
+    <h2>✉️ İletişim</h2>
+    <p>E-posta: <a href="mailto:firyatkilic@example.com" style="color:#f2c94c;">firyatkilic@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/firyat" style="color:#f2c94c;">github.com/firyat</a></p>
+  </section>
+
+  <footer>
+    © 2025 Firyat Kılıç – Tüm Hakları Saklıdır.
+  </footer>
 </body>
 </html>
